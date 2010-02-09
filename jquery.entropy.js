@@ -54,7 +54,7 @@ jQuery.entropy = (function($) {
 			
 			this.getOrigin = function() {
 
-				return jQuery(origin);
+				return $(origin);
 			};
 			
 			this.addToTriggerChain(origin);
@@ -67,7 +67,7 @@ jQuery.entropy = (function($) {
 				version: '0.1.0'		
 			};
 			
-			jQuery.extend(properties, userDefined);
+			$.extend(properties, userDefined);
 			
 			return {
 				getBound: function(){
@@ -186,7 +186,7 @@ jQuery.entropy = (function($) {
 				listen: function(listener){
 				
 					this.each(function(){
-						jQuery(listener).registerListener(this);
+						$(listener).registerListener(this);
 					});
 					
 					return this;
@@ -203,7 +203,7 @@ jQuery.entropy = (function($) {
 				},
 				updateProperties: function(properties) {
 					
-					jQuery.extend(this.properties(), properties);				
+					$.extend(this.properties(), properties);				
 				},
 				properties: properties,
 				onmatch: function(childDefined) {				
@@ -212,7 +212,7 @@ jQuery.entropy = (function($) {
 						this.data(i, childDefined[i]);
 					}
 					
-					jQuery.extend(this.properties(), childDefined);																			
+					$.extend(this.properties(), childDefined);																			
 				}
 			};
 		},
