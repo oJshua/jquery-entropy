@@ -227,14 +227,23 @@ jQuery.entropy = (function($) {
 		}
 	};
 	
-	function registerModule(selector, module) {
-			
-		$(selector).entwine(module.call(window));
+	$.fn.entropy = function(module, options) {
+		
+		if (typeof options == 'undefined') {
+			options = {};
+		}
+		
+		this.entwine(module.call(window, options));
+	}
+	
+	function registerModule(selector, module, options) {
+				
+		$(selector).entropy(module, options);
 	}
 							
 	registerModule('*', widget.Base);
 	registerModule('body', widget.Container);				
-
+			
 	return {
 		widget: widget,
 		util: util,
